@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gestura</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="video_title">Video Title</string>
+    <string name="play_pause">Play or Pause video</string>
+    <string name="loop_toggle">Toggle loop playback</string>
+</resources>
