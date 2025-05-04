@@ -6,7 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/bg2">
+    android:background="@drawable/bg2"
+    tools:context=".TranslateFragment">
+
+    <!-- Connection Icon -->
+    <ImageView
+        android:id="@+id/iconConnection"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/bluetoothdisconnectedsymbolic"
+        android:contentDescription="Bluetooth Icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp" />
 
     <!-- Connection Status -->
     <TextView
@@ -14,13 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Disconnected"
-        android:textColor="@color/gray"
+        android:textColor="?android:textColorPrimary"
         android:textSize="18sp"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintEnd_toStartOf="@id/iconConnection"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp" />
 
     <!-- Connect Button -->
     <Button
@@ -28,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connect"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:textColor="@android:color/white"
         android:fontFamily="@font/poppins_regular"
         app:cornerRadius="16dp"
@@ -36,43 +50,59 @@
         app:layout_constraintTop_toBottomOf="@id/textConnectionStatus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="16dp" />
 
-    <!-- Disconnect Button -->
-    <Button
-        android:id="@+id/btnBluetoothDisconnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Disconnect"
-        android:backgroundTint="@color/red"
-        android:textColor="@android:color/white"
-        android:fontFamily="@font/poppins_regular"
-        app:cornerRadius="16dp"
-        android:elevation="4dp"
+    <!-- English Translation Box (Fixed height) -->
+    <ScrollView
+        android:id="@+id/scrollEnglish"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/btnBluetoothConnect"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="16dp">
 
-    <!-- Translated Text Box -->
-    <TextView
-        android:id="@+id/textTranslation"
+        <TextView
+            android:id="@+id/textEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Let’s eat."
+            android:textSize="18sp"
+            android:gravity="center"
+            android:background="@drawable/rounded_textview_background"
+            android:textColor="?android:textColorPrimary"
+            android:fontFamily="@font/poppins_regular"
+            android:scrollbars="vertical" />
+    </ScrollView>
+
+    <!-- Filipino Translation Box (Fixed height) -->
+    <ScrollView
+        android:id="@+id/scrollTranslation"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="tara kumain na tayo"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"
-        android:padding="24dp"
-        android:background="@drawable/rounded_textview_background"
-        android:maxLines="5"
-        android:ellipsize="end"
-        android:fontFamily="@font/poppins_regular"
-        android:elevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/btnBluetoothDisconnect"
+        android:layout_height="150dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/scrollEnglish"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintBottom_toTopOf="@id/btnTextToSpeech"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/textTranslation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Tara, kumain na tayo."
+            android:textSize="18sp"
+            android:gravity="center"
+            android:background="@drawable/rounded_textview_background"
+            android:textColor="?android:textColorPrimary"
+            android:fontFamily="@font/poppins_regular"
+            android:scrollbars="vertical" />
+    </ScrollView>
 
     <!-- Speak Button -->
     <Button
@@ -85,9 +115,9 @@
         android:fontFamily="@font/poppins_regular"
         app:cornerRadius="16dp"
         android:elevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/textTranslation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        android:layout_marginBottom="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

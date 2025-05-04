@@ -1,32 +1,35 @@
 package com.example.gesturaapp;
 
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
-import com.google.android.material.button.MaterialButton;
+
 import java.util.Locale;
 
 public class TranslateFragment extends Fragment {
 
     private TextView textConnectionStatus;
-    private TextView textTranslation;
-    private MaterialButton btnBluetoothConnect;
-    private MaterialButton btnBluetoothDisconnect;
-    private MaterialButton btnTextToSpeech;
+    private TextView textEnglish;
+    private TextView textFilipino;
+    private Button btnBluetoothConnect;
+    private Button btnTextToSpeech;
+    private ImageView iconConnection;
 
-    private TextToSpeech textToSpeech;
     private boolean isConnected = false;
+    private TextToSpeech textToSpeech;
 
-    public TranslateFragment() {
-        // Required empty public constructor
-    }
+    public TranslateFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,68 +38,63 @@ public class TranslateFragment extends Fragment {
 
         // Initialize views
         textConnectionStatus = view.findViewById(R.id.textConnectionStatus);
-        textTranslation = view.findViewById(R.id.textTranslation);
+        textEnglish = view.findViewById(R.id.textEnglish);
+        textFilipino = view.findViewById(R.id.textTranslation);
         btnBluetoothConnect = view.findViewById(R.id.btnBluetoothConnect);
-        btnBluetoothDisconnect = view.findViewById(R.id.btnBluetoothDisconnect);
         btnTextToSpeech = view.findViewById(R.id.btnTextToSpeech);
+        iconConnection = view.findViewById(R.id.iconConnection);
 
-        btnBluetoothConnect.setOnClickListener(v -> connectBluetooth());
-        btnBluetoothDisconnect.setOnClickListener(v -> disconnectBluetooth());
-        btnTextToSpeech.setOnClickListener(v -> speakTranslation());
-
-        // Initialize Text-to-Speech
+        // Set up TTS
         textToSpeech = new TextToSpeech(requireContext(), status -> {
             if (status != TextToSpeech.ERROR) {
                 textToSpeech.setLanguage(new Locale("fil", "PH"));
             }
         });
 
+        // Button listeners
+        btnBluetoothConnect.setOnClickListener(v -> toggleBluetooth());
+        btnTextToSpeech.setOnClickListener(v -> speakFilipino());
+
         return view;
     }
 
-    private void connectBluetooth() {
-        isConnected = true;
-        showConnectedAnimation();
-        Toast.makeText(requireContext(), "Bluetooth Connected!", Toast.LENGTH_SHORT).show();
+    private void toggleBluetooth() {
+        isConnected = !isConnected;
+        animateButton(btnBluetoothConnect);
+
+        if (isConnected) {
+            textConnectionStatus.setText("Connected");
+            textConnectionStatus.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+            btnBluetoothConnect.setText("Disconnect");
+            btnBluetoothConnect.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(android.R.color.holo_green_dark)));
+            iconConnection.setImageResource(R.drawable.bluetoothconnected);
+            Toast.makeText(requireContext(), "Bluetooth Connected", Toast.LENGTH_SHORT).show();
+        } else {
+            textConnectionStatus.setText("Disconnected");
+            textConnectionStatus.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+            btnBluetoothConnect.setText("Connect");
+            btnBluetoothConnect.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(android.R.color.holo_red_dark)));
+            iconConnection.setImageResource(R.drawable.bluetoothdisconnectedsymbolic);
+            Toast.makeText(requireContext(), "Bluetooth Disconnected", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    private void disconnectBluetooth() {
-        isConnected = false;
-        textConnectionStatus.setText("Disconnected");
-        textConnectionStatus.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
-        Toast.makeText(requireContext(), "Bluetooth Disconnected", Toast.LENGTH_SHORT).show();
+    private void animateButton(Button button) {
+        AlphaAnimation animation = new AlphaAnimation(0.5f, 1.0f);
+        animation.setDuration(300);
+        button.startAnimation(animation);
     }
 
-    private void speakTranslation() {
+    private void speakFilipino() {
         if (!isConnected) {
             Toast.makeText(requireContext(), "Please connect to Bluetooth first.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String text = textTranslation.getText().toString();
+        String text = textFilipino.getText().toString();
         if (!text.isEmpty()) {
-            animateMicButton();
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
         }
-    }
-
-    private void showConnectedAnimation() {
-        textConnectionStatus.setText("Connected");
-        textConnectionStatus.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-
-        Animation fadeInOut = new AlphaAnimation(0.0f, 1.0f);
-        fadeInOut.setDuration(800);
-        fadeInOut.setRepeatCount(3);
-        fadeInOut.setRepeatMode(Animation.REVERSE);
-        textConnectionStatus.startAnimation(fadeInOut);
-    }
-
-    private void animateMicButton() {
-        Animation pulse = new AlphaAnimation(0.3f, 1.0f);
-        pulse.setDuration(500);
-        pulse.setRepeatCount(3);
-        pulse.setRepeatMode(Animation.REVERSE);
-        btnTextToSpeech.startAnimation(pulse);
     }
 
     @Override
