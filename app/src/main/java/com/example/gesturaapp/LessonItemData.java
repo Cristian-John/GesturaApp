@@ -8,9 +8,9 @@ public class LessonItemData {
         List<LessonItem> items = new ArrayList<>();
         switch (category) {
             case "Alphabet":
-                items.add(new LessonItem("A", "lettera"));
-                items.add(new LessonItem("B", "letterb"));
-                items.add(new LessonItem("C", "letterc"));
+                items.add(new LessonItem("A", "aletter"));
+                items.add(new LessonItem("B", "bletter"));
+                items.add(new LessonItem("C", "cletter"));
                 items.add(new LessonItem("D", "dletter"));
                 items.add(new LessonItem("E", "eletter"));
                 items.add(new LessonItem("F", "fletter"));
@@ -38,55 +38,58 @@ public class LessonItemData {
                 items.add(new LessonItem("Z", "zletter"));
                 break;
             case "Animals":
-                items.add(new LessonItem("Bear", "bear"));
-                items.add(new LessonItem("Bird", "bird"));
-                items.add(new LessonItem("Butterfly", "butterfly"));
-                items.add(new LessonItem("Carabao", "carabao"));
-                items.add(new LessonItem("Dog", "dog"));
-                items.add(new LessonItem("Duck", "duck"));
-                items.add(new LessonItem("Fish", "fish"));
-                items.add(new LessonItem("Worm", "worm"));
+                items.add(new LessonItem("Bear/Oso", "bear"));
+                items.add(new LessonItem("Bird/Ibon", "bird"));
+                items.add(new LessonItem("Butterfly/Paruparo", "butterfly"));
+                items.add(new LessonItem("Carabao/Kalabaw", "carabao"));
+                items.add(new LessonItem("Dog/Aso", "dog"));
+                items.add(new LessonItem("Duck/Pato", "duck"));
+                items.add(new LessonItem("Fish/Isda", "fish"));
+                items.add(new LessonItem("Worm/Uod", "worm"));
                 break;
             case "Colors":
-                items.add(new LessonItem("Black", "black"));
-                items.add(new LessonItem("Blue", "blue"));
-                items.add(new LessonItem("Brown", "brown"));
-                items.add(new LessonItem("Gray", "gray"));
-                items.add(new LessonItem("Green", "green"));
-                items.add(new LessonItem("Orange", "orange"));
-                items.add(new LessonItem("Red", "red"));
-                items.add(new LessonItem("Violet", "violet"));
+                items.add(new LessonItem("Black/Itim", "black"));
+                items.add(new LessonItem("Blue/Asul", "blue"));
+                items.add(new LessonItem("Brown/Kayumanggi", "brown"));
+                items.add(new LessonItem("Gray/Kulay Abo", "gray"));
+                items.add(new LessonItem("Green/Berde", "green"));
+                items.add(new LessonItem("Orange/Kahel", "orange"));
+                items.add(new LessonItem("Red/Pula", "red"));
+                items.add(new LessonItem("Silver/Pilak", "silver"));
+                items.add(new LessonItem("Violet/Lila", "violet"));
+                items.add(new LessonItem("White/Puti", "white"));
+                items.add(new LessonItem("Yellow/Dilaw", "yellow"));
                 break;
             case "Emotions":
-                items.add(new LessonItem("angry", "angry"));
-                items.add(new LessonItem("Annoy", "annoy"));
-                items.add(new LessonItem("Crazy", "crazy"));
+                items.add(new LessonItem("Angry/Galit", "angry"));
+                items.add(new LessonItem("Annoy/Nakakinis", "annoy"));
+                items.add(new LessonItem("Crazy/Baliw", "crazy"));
                 items.add(new LessonItem("Excite", "excite"));
-                items.add(new LessonItem("Shame", "shame"));
-                items.add(new LessonItem("Strong", "strong"));
+                items.add(new LessonItem("Shame/Kahihiyan", "shame"));
+                items.add(new LessonItem("Strong/Malakas", "strong"));
                 break;
             case "Greetings":
-                items.add(new LessonItem("Good Afternoon", "goodafternoon"));
-                items.add(new LessonItem("Good Evening", "goodevening"));
-                items.add(new LessonItem("Good Morning", "goodmorning"));
-                items.add(new LessonItem("Good Night", "goodnight"));
-                items.add(new LessonItem("Good Bye", "goodbye"));
+                items.add(new LessonItem("Good Afternoon/Magandang Tanghali", "goodafternoon"));
+                items.add(new LessonItem("Good Evening/Magandang Gabi", "goodevening"));
+                items.add(new LessonItem("Good Morning/Magandang Umaga", "goodmorning"));
+                items.add(new LessonItem("Good Night/Magandang Gabi", "goodnight"));
+                items.add(new LessonItem("Good Bye/Paalam", "goodbye"));
                 items.add(new LessonItem("Hello", "hello"));
                 items.add(new LessonItem("Hi", "hi"));
-                items.add(new LessonItem("Thank You", "thankyou"));
-                items.add(new LessonItem("Welcome", "welcome"));
+                items.add(new LessonItem("Thank You/Salamat", "thankyou"));
+                items.add(new LessonItem("Welcome/Walang Anuman", "welcome"));
                 break;
             case "Numbers":
-                items.add(new LessonItem("one to ten", "onetoten"));
+                items.add(new LessonItem("one to ten/ Isa - Sampu", "onetoten"));
                 break;
             case "Questions":
-                items.add(new LessonItem("How?", "how"));
-                items.add(new LessonItem("How much?", "howmuch"));
-                items.add(new LessonItem("What?", "what"));
-                items.add(new LessonItem("When?", "when"));
-                items.add(new LessonItem("Which", "which"));
-                items.add(new LessonItem("Who?", "who"));
-                items.add(new LessonItem("Why?", "why"));
+                items.add(new LessonItem("How?/Paano?", "how"));
+                items.add(new LessonItem("How much?/magkano?", "howmuch"));
+                items.add(new LessonItem("What?/Ano?", "what"));
+                items.add(new LessonItem("When?/Kailan?", "when"));
+                items.add(new LessonItem("Which/Alin?", "which"));
+                items.add(new LessonItem("Who?/Sino?", "who"));
+                items.add(new LessonItem("Why?/Bakit?", "why"));
                 break;
             case "Foods":
                 items.add(new LessonItem("Gatas", "gatas"));

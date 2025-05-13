@@ -42,7 +42,7 @@ public class LearnFragment extends Fragment {
         // Add data to categoryList (you can change the images as per your requirements)
         categoryList.add(new LearnCategory("Alphabet", R.drawable.alphabet));
         categoryList.add(new LearnCategory("Animals", R.drawable.animal));
-        categoryList.add(new LearnCategory("Colors", R.drawable.color));
+        categoryList.add(new LearnCategory("Colors", R.drawable.colors));
         categoryList.add(new LearnCategory("Emotions", R.drawable.emotions));
         categoryList.add(new LearnCategory("Foods", R.drawable.fooddrinks));
         categoryList.add(new LearnCategory("Greetings", R.drawable.greetings));
