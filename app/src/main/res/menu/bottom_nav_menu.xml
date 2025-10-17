@@ -10,4 +10,10 @@
         android:id="@+id/nav_translate"
         android:icon="@drawable/audio"
         android:title="Translate" />
+
+    <item
+        android:id="@+id/nav_assessment"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Assessment" />
+
 </menu>

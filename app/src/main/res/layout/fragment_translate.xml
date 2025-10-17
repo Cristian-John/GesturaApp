@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- English Translation Box (Fixed height) -->
+    <!-- English Translation Box (Flex sensor + Accelerometer) -->
     <ScrollView
         android:id="@+id/scrollEnglish"
         android:layout_width="0dp"
@@ -63,21 +63,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/textEnglish"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="16dp"
-            android:text="Let’s eat."
-            android:textSize="18sp"
-            android:gravity="center"
-            android:background="@drawable/rounded_textview_background"
-            android:textColor="?android:textColorPrimary"
-            android:fontFamily="@font/poppins_regular"
-            android:scrollbars="vertical" />
+            android:background="@drawable/rounded_textview_background">
+
+            <TextView
+                android:id="@+id/textEnglish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@android:color/black"
+                android:scrollbars="vertical" />
+
+            <TextView
+                android:id="@+id/textAccelerometer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
     </ScrollView>
 
-    <!-- Filipino Translation Box (Fixed height) -->
+    <!-- Filipino Translation Box -->
     <ScrollView
         android:id="@+id/scrollTranslation"
         android:layout_width="0dp"
@@ -95,11 +110,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Tara, kumain na tayo."
+            android:text=""
             android:textSize="18sp"
             android:gravity="center"
             android:background="@drawable/rounded_textview_background"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="@android:color/black"
             android:fontFamily="@font/poppins_regular"
             android:scrollbars="vertical" />
     </ScrollView>

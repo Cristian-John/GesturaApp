@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- ✅ Bluetooth permissions -->
+    <!-- Android 11 and below -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+
+    <!-- Android 12+ (runtime permissions) -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <!-- Needed for discovery on Android 10/11 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- Location sometimes needed for Bluetooth discovery in newer Android versions -->
+
+    <!-- Internet (if needed for online features or updates) -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,9 +25,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesturaApp"
-        tools:targetApi="31">
+        android:usesCleartextTraffic="true">
 
-        <!-- SplashActivity: Launched when the app starts -->
+        <!-- Splash screen launcher -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -31,7 +37,7 @@
             </intent-filter>
         </activity>
 
-        <!-- MainActivity -->
+        <!-- Main activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />

@@ -62,9 +62,9 @@ public class LessonItemData {
                 break;
             case "Emotions":
                 items.add(new LessonItem("Angry/Galit", "angry"));
-                items.add(new LessonItem("Annoy/Nakakinis", "annoy"));
+                items.add(new LessonItem("Annoy/Nakakainis", "annoy"));
                 items.add(new LessonItem("Crazy/Baliw", "crazy"));
-                items.add(new LessonItem("Excite", "excite"));
+                items.add(new LessonItem("Excite/Nasasabik", "excite"));
                 items.add(new LessonItem("Shame/Kahihiyan", "shame"));
                 items.add(new LessonItem("Strong/Malakas", "strong"));
                 break;
@@ -74,13 +74,12 @@ public class LessonItemData {
                 items.add(new LessonItem("Good Morning/Magandang Umaga", "goodmorning"));
                 items.add(new LessonItem("Good Night/Magandang Gabi", "goodnight"));
                 items.add(new LessonItem("Good Bye/Paalam", "goodbye"));
-                items.add(new LessonItem("Hello", "hello"));
                 items.add(new LessonItem("Hi", "hi"));
                 items.add(new LessonItem("Thank You/Salamat", "thankyou"));
                 items.add(new LessonItem("Welcome/Walang Anuman", "welcome"));
                 break;
             case "Numbers":
-                items.add(new LessonItem("one to ten/ Isa - Sampu", "onetoten"));
+                items.add(new LessonItem("one to ten/ Isa hanggang Sampu", "onetoten"));
                 break;
             case "Questions":
                 items.add(new LessonItem("How?/Paano?", "how"));
@@ -90,11 +89,13 @@ public class LessonItemData {
                 items.add(new LessonItem("Which/Alin?", "which"));
                 items.add(new LessonItem("Who?/Sino?", "who"));
                 items.add(new LessonItem("Why?/Bakit?", "why"));
+                items.add(new LessonItem("Yes/Oo", "oo"));
+                items.add(new LessonItem("No/Hindi", "hindi"));
                 break;
             case "Foods":
                 items.add(new LessonItem("Gatas", "gatas"));
                 items.add(new LessonItem("Hotdog", "hotdog"));
-                items.add(new LessonItem("Inumin/Drink", "inumin"));
+                items.add(new LessonItem("Inumin", "inumin"));
                 items.add(new LessonItem("Itlog", "itlog"));
                 items.add(new LessonItem("Juice", "juice"));
                 items.add(new LessonItem("Kanin", "kanin"));

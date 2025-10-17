@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/backgroundbg">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_alphabet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Alphabet"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_animals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Animals"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_colors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Colors"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_emotions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Emotions"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_numbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Numbers"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_foods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Food and Drinks"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_greetings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Greetings"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_questions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Questions"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_bg"
+            android:text="Random (All Topics)"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+    </LinearLayout>
+</ScrollView>

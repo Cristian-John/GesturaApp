@@ -11,5 +11,7 @@
     <color name="gray">#808080</color>
     <color name="teal_700">#018786</color>
     <color name="purple_200">#BB86FC</color>
+    <color name="my_red">#FF0000</color>
+
 
 </resources>
