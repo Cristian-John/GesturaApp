@@ -6,4 +6,18 @@
     <string name="play_pause">Play or Pause video</string>
     <string name="loop_toggle">Toggle loop playback</string>
     <string name="bluetooth_icon">Bluetooth Icon</string>
+
+    <string-array name="type_filter_options">
+        <item>All</item>
+        <item>Quiz</item>
+        <item>Replication</item>
+    </string-array>
+
+    <string-array name="date_filter_options">
+        <item>All Time</item>
+        <item>This Month</item>
+        <item>Today</item>
+    </string-array>
+
+
 </resources>

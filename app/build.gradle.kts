@@ -42,6 +42,9 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
 
+    implementation("com.airbnb.android:lottie:6.1.0")
+    implementation ("com.airbnb.android:lottie:6.3.0")
+
     // ✅ ONNX Runtime for Android (Kotlin DSL syntax)
     implementation("com.microsoft.onnxruntime:onnxruntime-android:1.19.0")
     implementation(libs.core.ktx)

@@ -34,10 +34,23 @@
         android:id="@+id/btn_replication"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:padding="16dp"
         android:text="🤲 Replication Practice"
         android:textSize="18sp"
         android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:elevation="4dp" />
+
+    <!-- 📊 NEW: View History button -->
+    <Button
+        android:id="@+id/btn_view_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="📊 View History"
+        android:textSize="18sp"
+        android:backgroundTint="#6C63FF"
         android:textColor="#FFFFFF"
         android:elevation="4dp" />
 </LinearLayout>

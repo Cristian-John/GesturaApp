@@ -88,6 +88,10 @@ public class ReplicationFragment extends Fragment {
     // Model labels fallback (keep consistent with translate)
     private final String[] knownLabels = {"isa", "dalawa", "tatlo", "apat", "lima", "A", "B"};
 
+    //String subject = getArguments() != null ? getArguments().getString("subject", "Unknown") : "Unknown";
+    private String subject;
+
+
     public ReplicationFragment() {}
 
     @Override
@@ -95,6 +99,7 @@ public class ReplicationFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_replication, container, false);
+        subject = getArguments() != null ? getArguments().getString("subject", "Random") : "Random";
 
         // UI references
         videoView = view.findViewById(R.id.videoView);
@@ -261,6 +266,12 @@ public class ReplicationFragment extends Fragment {
             tvResult.setText(score >= Math.max(1, (int)Math.ceil(expectedSigns.size()*0.6)) ? "Passed!" : "Failed!");
             btnRetry.setVisibility(View.VISIBLE);
             btnPrepare.setVisibility(View.GONE);
+
+            ZYQuizDatabaseHelper dbHelper = new ZYQuizDatabaseHelper(requireContext());
+            //String dateTaken = java.text.DateFormat.getDateTimeInstance().format(new java.util.Date());
+            String dateTaken = new java.text.SimpleDateFormat("MMM dd, yyyy h:mm a", java.util.Locale.getDefault())
+                    .format(new java.util.Date());
+            dbHelper.insertQuizResult("Replication", subject, score, expectedSigns.size(), dateTaken);
         }
     }
 

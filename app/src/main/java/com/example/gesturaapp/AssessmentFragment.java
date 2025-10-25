@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.RadioButton;
@@ -22,6 +24,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.airbnb.lottie.LottieAnimationView;
+
+
 public class AssessmentFragment extends Fragment {
 
     private TextView questionTextView;
@@ -37,11 +42,15 @@ public class AssessmentFragment extends Fragment {
 
     public AssessmentFragment() {}
 
+   // String subject = getArguments() != null ? getArguments().getString("subject", "Random") : "Random";
+   private String subject;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_assessment, container, false);
+        subject = getArguments() != null ? getArguments().getString("subject", "Random") : "Random";
 
         questionTextView = view.findViewById(R.id.text_question);
         choicesGroup = view.findViewById(R.id.choices_group);
@@ -141,33 +150,57 @@ public class AssessmentFragment extends Fragment {
 
 
     private void endQuiz() {
+        boolean isPassed = score >= 7;
+
+        // Build the result string
         String result = "Your score: " + score + "/" + questionList.size() +
-                (score >= 7 ? "\nYou passed!" : "\nYou failed.");
+                (isPassed ? "\nYou passed!" : "\nYou failed.");
 
+        // Inflate the custom dialog view with animation
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View dialogView = inflater.inflate(R.layout.dialog_quiz_result, null);
+
+        TextView resultTextView = dialogView.findViewById(R.id.resultTextView);
+        LottieAnimationView animationView = dialogView.findViewById(R.id.animationView);
+
+        resultTextView.setText(result);
+
+        // Choose animation depending on result
+        if (isPassed) {
+            animationView.setAnimation(R.raw.passed); // 🎉 success Lottie file
+            animationView.playAnimation();
+        } else {
+            animationView.setAnimation(R.raw.fail); // ❌ red x-mark or shake animation
+            animationView.playAnimation();
+        }
+
+        // Build AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Quiz Finished");
-        builder.setMessage(result);
+        builder.setView(dialogView);
 
-        // Retry option
         builder.setPositiveButton("Retry", (dialog, which) -> {
             currentQuestionIndex = 0;
             score = 0;
             showQuestion();
-            scoreTextView.setText("Score: " + score);  // ✅ Update score display
-            submitButton.setEnabled(true);
             scoreTextView.setText("Score: 0");
+            submitButton.setEnabled(true);
         });
 
-        // Go back option
         builder.setNegativeButton("Back to Subjects", (dialog, which) -> {
             requireActivity().getSupportFragmentManager().popBackStack();
         });
 
-        builder.setCancelable(false); // prevent closing without choosing
+        builder.setCancelable(false);
         builder.show();
 
-        // Stop video playback
+        // Stop video playback when quiz ends
         videoView.stopPlayback();
+
+        // Save result to database
+        ZYQuizDatabaseHelper dbHelper = new ZYQuizDatabaseHelper(requireContext());
+        String dateTaken = new java.text.SimpleDateFormat("MMM dd, yyyy h:mm a", java.util.Locale.getDefault())
+                .format(new java.util.Date());
+        dbHelper.insertQuizResult("Quiz", subject, score, questionList.size(), dateTaken);
     }
 
 
