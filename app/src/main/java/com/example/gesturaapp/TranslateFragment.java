@@ -440,7 +440,7 @@ public class TranslateFragment extends Fragment {
                 maxIdx = i;
             }
         }
-        String[] labels = {"isa", "dalawa", "tatlo","apat", "lima"};
+        String[] labels = {"Paalam", "Ano", "Itlog","Malakas", "Mahal Kita"};
         if (maxIdx < labels.length) return labels[maxIdx];
         return "label_" + maxIdx;
     }
